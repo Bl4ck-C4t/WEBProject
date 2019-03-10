@@ -14,10 +14,7 @@ li {
 	padding-left: 10px;
 }
 
-.navbar-left{
-	float: left;
-	width: 15%;
-}
+
 .bg-primary {
 	background-color: #7cc87a !important;
 }
@@ -32,5 +29,11 @@ li {
 .nav-link:hover {
 	margin-left: -10px;
 	padding-left: 10px;
+}
+
+.navbar-left {
+	width: 16.7%;
+	position: fixed;
+	height: 100%;
 }
 
