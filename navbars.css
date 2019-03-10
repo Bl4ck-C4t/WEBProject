@@ -1,0 +1,36 @@
+body {
+	background-color: lightblue;
+}
+
+.navbar-brand {
+	padding-left: 10px;
+	/*background-color: #7cc87a;*/
+	padding-right: 10px;
+}
+
+li {
+	border: black solid;
+	border-width: 2px;
+	padding-left: 10px;
+}
+
+.navbar-left{
+	float: left;
+	width: 15%;
+}
+.bg-primary {
+	background-color: #7cc87a !important;
+}
+
+#headP {}
+
+#navbarCollapse {
+	/*background-color: gray;*/
+	padding-top: 2px;
+}
+
+.nav-link:hover {
+	margin-left: -10px;
+	padding-left: 10px;
+}
+
