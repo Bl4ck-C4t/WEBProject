@@ -28,6 +28,10 @@ li {
 	padding-top: 2px;
 }
 
+#navDrop {
+	display: none;
+}
+
 .nav-link:hover {
 	margin-left: -10px;
 	padding-left: 10px;
@@ -49,6 +53,7 @@ li {
 }
 
 #main {
+  height: 100%;
   max-width: 61%;
   margin-left: 16.6%;
   background-color: blue;
