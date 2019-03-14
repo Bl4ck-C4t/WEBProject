@@ -29,6 +29,11 @@ li {
 }
 
 #navDrop {
+	/*display: none;*/
+	margin-right: 102rem;
+}
+
+#topNav {
 	display: none;
 }
 
@@ -49,12 +54,53 @@ li {
 }
 
 .vertical-center {
-  background-color: blue;
+  /*background-color: blue;*/
+}
+
+.nav-link {
+	color: white !important;
 }
 
 #main {
   height: 100%;
+  float: left;
   max-width: 61%;
   margin-left: 16.6%;
-  background-color: blue;
+  background-color: #f2d7a6;
+  padding: 4rem;
 }
+
+
+@media (max-width: 1000px) {
+	#main{
+		max-width: 84%;
+	}
+} 
+
+@media (max-width: 700px) { 
+	.navbar-left {
+		display: none;
+	}
+
+	#topNav {
+		display: block;
+	}
+
+	#main {
+		padding: 2rem;
+		background-color: #f2d7a6;
+		max-width: 100%;
+		margin-left: auto;
+		margin-top: 2rem;
+	}
+
+	#navDrop {
+		margin-right: 4rem;
+	}
+
+	li {
+		border: none;
+	}
+
+} 
+
