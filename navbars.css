@@ -9,7 +9,7 @@ body {
 }
 
 li {
-	border: black solid;
+	border-bottom: black solid;
 	border-width: 2px;
 	padding-left: 10px;
 }
@@ -17,6 +17,12 @@ li {
 
 .bg-primary {
 	background-color: #7cc87a !important;	
+}
+
+ul.navbar-nav{
+	border-top: black solid;
+	border-width: 2px;
+	margin-top: 5px;
 }
 
 #headP {
