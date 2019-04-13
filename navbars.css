@@ -45,7 +45,7 @@ ul.navbar-nav{
 
 .nav-link:hover {
 	margin-left: -10px;
-	padding-left: 10px;
+	padding-left: 15px;
 }
 
 .navbar-left {
@@ -57,10 +57,6 @@ ul.navbar-nav{
   left: 0;
   background-color: #111; 
   overflow-x: hidden; 
-}
-
-.vertical-center {
-  /*background-color: blue;*/
 }
 
 .bar-heading{
@@ -100,7 +96,7 @@ ul.navbar-nav{
 	}
 
 	#main {
-		padding: 2rem;
+		padding: 3rem;
 		background-color: #f2d7a6;
 		max-width: 100%;
 		margin-left: auto;
