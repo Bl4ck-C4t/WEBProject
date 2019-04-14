@@ -4,8 +4,6 @@ body {
 
 .navbar-brand {
 	padding-left: 10px;
-	/*background-color: #7cc87a;*/
-	padding-right: 10px;
 }
 
 li {
@@ -34,10 +32,6 @@ li {
 #navDrop {
 	display: none;
 	margin-right: 102rem;
-}
-
-#topNav {
-	display: none;
 }
 
 .nav-link:hover {
