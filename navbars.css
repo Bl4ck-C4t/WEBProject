@@ -19,12 +19,6 @@ li {
 	background-color: #7cc87a !important;	
 }
 
-ul.navbar-nav{
-	border-top: black solid;
-	border-width: 2px;
-	margin-top: 5px;
-}
-
 #headP {
 	margin-top: 11px;
 }
@@ -32,6 +26,9 @@ ul.navbar-nav{
 #navbarCollapse {
 	/*background-color: gray;*/
 	padding-top: 2px;
+	border-top: black solid;
+	border-width: 2px;
+	margin-top: 5px;
 }
 
 #navDrop {
@@ -87,13 +84,13 @@ ul.navbar-nav{
 } 
 
 @media (max-width: 700px) { 
-	.navbar-left {
+	/*.navbar-left {
 		display: none;
 	}
 
 	#topNav {
 		display: block;
-	}
+	}*/
 
 	#main {
 		padding: 3rem;
@@ -104,7 +101,7 @@ ul.navbar-nav{
 	}
 
 	#navDrop {
-		margin-right: 4rem;
+		margin-right: auto;
 	}
 
 	/*li {
