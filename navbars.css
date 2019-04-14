@@ -6,6 +6,10 @@ body {
 	padding-left: 10px;
 }
 
+.bar-heading-holder{
+    background: #2980b9;
+}
+
 li {
 	border-bottom: black solid;
 	border-width: 2px;
@@ -26,7 +30,7 @@ li {
 	padding-top: 2px;
 	border-top: black solid;
 	border-width: 2px;
-	margin-top: 5px;
+/*	margin-top: 5px;*/
 }
 
 #navDrop {
@@ -73,8 +77,7 @@ li {
   position: absolute;
   background-color: #f2d7a6;
   padding: 4rem;
-  font-family: "Lato","proxima-nova","Helvetica Neue",Arial,sans-serif;
-
+  font-family: "Lato","proxima-nova","Helvetica Neue","Arial","sans-serif";
   font-weight: normal;
 }
 
@@ -83,8 +86,6 @@ li {
 @media (max-width: 1000px) {
 	#main{
 		max-width: 84%;
-        height: 100% !important;
-       
 	}
 } 
 
