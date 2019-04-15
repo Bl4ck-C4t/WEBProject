@@ -49,24 +49,32 @@
 </nav>
 <div id="main">
 	<div class="vertical-center">
-      <h1>Datatypes</h1>
+      <h1>Examples</h1>
       <hr>
 
       <div id="content"> <!-- <code class="code code-literal">Some code</code> -->
         <p class="lead">
-        More types are to come...
+        Under development...
         </p>
-        <ul class="list-unstyled">
-          Available Types:
-            <ul>  
-              <li>int</li>
-              <li>string</li>
-              <li>char</li>
-              <li>float</li>
-              <li>boolean</li>
-            </ul>
-          </li>
-      </ul>
+        <h2 class="block-head"> Simple program </h2>
+        <p>
+          <pre class="code-block">
+func namePrint(string nm){
+  print(nm)
+}
+
+func foo(string a) -> string{
+  return a + " + B"
+}
+
+print("Enter name: ")
+name = input()
+namePrint(nm)
+for(char c in nm){
+  if(c > 30){
+    print("Char code above 30")
+  }
+}</pre>
 
 		</div>
 	</div>

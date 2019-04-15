@@ -47,7 +47,7 @@ p 	{
 #content {
 	background: #f9ecd5e6;
 	padding: 30px;
-	border: thin white;
+	/*border: solid 1px #e1e4e5;*/
 }
 
 .navbar-brand {
@@ -66,34 +66,33 @@ p 	{
 	color: #E74C3C;
 }
 
-.code {
+.code-inline {
 	display: inline;
 	white-space: nowrap;
-	max-width: 100%;
-	background: #fff;
-	border: solid 1px #e1e4e5;
 	font-size: 75%;
-	color: black;
-	overflow-x: auto;
-	padding: 10px 10px;
-	margin: 0px 10px 0px 10px;
+	padding: 2px 5px;
+	margin: 0px 5px 0px 5px;
 }
 
 .code-block {
-	max-width: 100%;
-	background: #fff;
-	border: solid 1px #e1e4e5;
-	font-size: 75%;
 	color: black;
-	overflow-x: auto;
 	padding: 10px 10px;
-	margin: 0px 10px 0px 10px;
 	font-size: 0.9rem;
 }
 
+.code-block, .code-inline{
+	max-width: 100%;
+	background: #fff;
+	border: solid 1px #e1e4e5;
+	overflow-x: auto;
+}
+
 .nav-link:hover {
-	margin-left: -10px;
 	padding-left: 15px;
+}
+
+.nav-link:focus, .nav-link:hover{
+	margin-left: -10px;
 }
 
 .navbar-left {
@@ -120,11 +119,12 @@ p 	{
 
 .vertical-center {
     height: 100% !important;
+    /*position: absolute;*/
 }
 
 .block-head {
 	font-weight: 700;
-    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia",Arial,sans-serif;
+    font-family: "Roboto Slab","ff-tisa-web-pro","Georgia","Arial","sans-serif";
 }
 
 

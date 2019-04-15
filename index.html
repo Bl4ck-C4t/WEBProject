@@ -33,15 +33,15 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Control Flow</a>
+        <a class="nav-link" href="Control_flow.html">Control Flow</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Built-in functions</a>
+        <a class="nav-link" href="Functions.html">Built-in functions</a>
       </li>
 
        <li class="nav-item">
-        <a class="nav-link" href="#">Examples</a>
+        <a class="nav-link" href="Examples.html">Examples</a>
       </li>
 
     </ul>
@@ -56,19 +56,23 @@
         <p class="lead">
         Znaka is a scripting language made for TP by Toni and Stefan.
         </p>
-
+        <h2 class="block-head"> Basics </h2>
+        <p>
+          You can add comments using '//' or '/* */' common syntax<br> <code class="code code-inline">// comment</code>
+           <code class="code code-inline">/* This is a comment */</code>
+        </p>
+        <hr>
         <h2 class="block-head"> Creating variables </h2>
         <p>
           <pre class="code-block">
 int a = 10
 char b = 'a'
-string asd = "hello world"
-          </pre>
+string asd = "hello world"</pre>
 
         </p>
 
         <p>
-          Refer to the Datatypes tab for more variable types
+          - Refer to the Datatypes tab for more variable types
         </p>
         <hr>
         <h2 class="block-head"> Using Control flow </h2>
@@ -85,8 +89,7 @@ for(x in range(a)){
   else{
     print("something else")
   }
-}
-          </pre>
+}</pre>
 
 
         </p>
@@ -94,11 +97,45 @@ for(x in range(a)){
           <pre class="code-block">
 while(true){
   print("Greetings humans")
-}
-          </pre>
+}</pre>
           
 
         </p>
+        <p>
+          Using <code class="code code-inline">and</code> and <code class="code code-inline">or</code> 
+          Allows for multiple conditions in if
+        </p>
+        <p>
+          The default console output function is <code class="code code-inline">print(string text)</code><br>
+          The default input function is <code class="code code-inline">input()</code>
+        </p>
+        <hr>
+        <h2 class="block-head"> Iteration and iterables </h2>
+        <p>
+          <p class="lead"> There is only 1 type of iterable currently - The dynamic list </p>
+          <pre class="code-block">
+List ls = []
+ls.push(10)
+ls.push(20)
+for (c in ls){
+  print(c)
+}</pre>
+      <p>
+        Lists can be filled with any type or constrained to a specific type:<code class="code code-inline">List&ltint&gt ls</code><br>
+        This also allows iteration by type <code class="code code-inline">for(int a in ls)</code><br>
+        The default list allows any type, however variable assignment can still happen even on mixed type lists.
+        <pre class="code-block">
+List ls = []
+ls.push(15)
+ls.push(20)
+for (int c in ls){
+  print(c)
+}</pre>
+      </p>
+
+        </p>
+
+
 		</div>
 	</div>
   
