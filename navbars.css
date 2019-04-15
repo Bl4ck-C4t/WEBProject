@@ -102,13 +102,13 @@ li {
 }
 
 
-/*@media (min-width: 1000px) {
+@media (max-width: 768px) {
 	#main{
 		width: 84%;
 	}
-} */
+} 
 
-@media (max-width: 700px) { 
+@media (max-width: 576px) { 
 
 	#main {
 		padding: 3rem;
