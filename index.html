@@ -3,7 +3,7 @@
 <head>
   <!-- TODO: Make examples with flex as the ones in https://getbootstrap.com/docs/4.3/utilities/overflow/ -->
   <!-- TODO: Look at text in bootstrap https://getbootstrap.com/docs/4.3/content/typography/ https://getbootstrap.com/docs/4.3/components/navbar/-->
-  <!-- TODO: Scroll spy? -->
+  <!-- TODO: Use jquery to make the code blocks colored -->
 	<title>Vortex</title>
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,7 +56,7 @@
         <p class="lead">
         Znaka is a scripting language made for TP by Toni and Stefan.
         </p>
-        
+
         <h2 class="block-head"> Creating variables </h2>
         <p>
           <pre class="code-block">
@@ -67,21 +67,38 @@ string asd = "hello world"
 
         </p>
 
+        <p>
+          Refer to the Datatypes tab for more variable types
+        </p>
+        <hr>
+        <h2 class="block-head"> Using Control flow </h2>
+        <p>
+          <pre class="code-block">
+a = 10
+for(x in range(a)){
+  if(x % 2 == 0){
+    print(x)
+  }
+  else if(x == 10) {
+    print("10 reached")
+  }
+  else{
+    print("something else")
+  }
+}
+          </pre>
 
-        <!-- <ul class="list-unstyled">
-          Lorem
-          Ipsum
-            <ul>
-              <li>Phasellus iaculis neque</li>
-              <li>Purus sodales ultricies</li>
-              <li>Vestibulum laoreet porttitor sem</li>
-              <li>Ac tristique libero volutpat at</li>
-            </ul>
-          </li>
-          Dolor sit 
-          amet
-      </ul>
- -->
+
+        </p>
+        <p>
+          <pre class="code-block">
+while(true){
+  print("Greetings humans")
+}
+          </pre>
+          
+
+        </p>
 		</div>
 	</div>
   

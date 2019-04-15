@@ -2,14 +2,14 @@ body {
 	background-color: lightblue;
 }
 
-li {
+p 	{
+	line-height: 24px;
+}
+
+#NavBar li {
 	border-bottom: black solid;
 	border-width: 2px;
 	padding-left: 10px;
-}
-
-p 	{
-	line-height: 24px;
 }
 
 #headP {
@@ -33,7 +33,7 @@ p 	{
 
 
 #main {
-  height: 100% !important;
+  /*height: 100% !important;*/
   float: left;
   width: 61%;
   margin-left: 16.6%;
