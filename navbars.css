@@ -34,6 +34,7 @@ p 	{
 
 #main {
   /*height: 100% !important;*/
+  min-height: 100%;
   float: left;
   width: 61%;
   margin-left: 16.6%;
