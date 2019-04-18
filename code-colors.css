@@ -23,6 +23,10 @@
 	color: #863333e6;
 }
 
-.operator {
+.operator-\\\=\\\= { /* color for == */
 	/*color: red;*/
+}
+
+.symbol {
+	color: purple;
 }
