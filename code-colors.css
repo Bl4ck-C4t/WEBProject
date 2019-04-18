@@ -1,8 +1,28 @@
-.var {
+.var, .reserved, .boolean {
 	color: blue;
 }
 
 
 .string {
 	color: green;
+}
+
+.number {
+	color: orange;
+}
+
+.function {
+	color: #be284c;
+}
+
+.character {
+	color: #a31515;
+}
+
+.punctuation {
+	color: #863333e6;
+}
+
+.operator {
+	/*color: red;*/
 }

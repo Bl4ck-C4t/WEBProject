@@ -60,6 +60,8 @@
         </p>
         <h2 class="block-head"> Simple program </h2>
         <p>
+          <!-- <pre class="code-block">
+a == b</pre> -->
           <pre class="code-block">
 func namePrint(string nm){
   print(nm)
@@ -69,14 +71,15 @@ func foo(string a) -> string{
   return a + " + B"
 }
 int a = 10;
-char b = 20;
+char b = 'S';
+bool c = True;
 string s = "Hey";
 print("Enter name: ")
 name = input()
 namePrint(nm)
 for(char c in nm){
-  if(c > 30){
-    print("Char code above 30")
+  if(c >= 30){
+    print("Char code above or equal to 30")
   }
 }</pre>
 
