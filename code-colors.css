@@ -15,12 +15,17 @@
 	color: #be284c;
 }
 
+.def-function {
+	color: #00b4e4;
+}
+
 .character {
 	color: #a31515;
 }
 
 .punctuation {
-	color: #863333e6;
+	/*color: #863333e6;*/
+	color: black;
 }
 
 .operator-\\\=\\\= { /* color for == */
@@ -29,4 +34,8 @@
 
 .symbol {
 	color: purple;
+}
+
+.def-class {
+	color:red;
 }

@@ -37,7 +37,6 @@ $(document).ready(function() {
 
 	function replaceAllMatches(allMatches, text){
 		var new_text = 	""
-		var match = 0;
 		var last_pos = 0
 		for (const m of allMatches) {
 			new_text += text.substring(last_pos, m.index)
@@ -95,9 +94,10 @@ $(document).ready(function() {
 	}
 
 	var vars = ["char", "int", "bool", "string", "float"]
+	var def_classes = ["List"]
 	var res_words = ["if", "else", "while", "for", "elseif", "return", "func", "in"]
 	var def_functions = ["print", "input", "map", "filter", "push"]
-	var operators = ["&&", "||",  "<=", ">=", "==", "!=", "--", "++", "+=", "-=", "/=", "*=",
+	var operators = ["&&", "||", "->", "<=", ">=", "==", "!=", "--", "++", "+=", "-=", "/=", "*=",
 	 "!", "+", "=", "-", "*", "/", "^", "%", "<", ">", "."]
 	// var punctuation = ",;(){}[]".split('')
 	var punctuation = "()[]".split('')
@@ -113,12 +113,13 @@ $(document).ready(function() {
 		allMatches = allMatches.concat(matchTypes(punctuation, "punctuation", true))
 		allMatches = allMatches.concat(matchTypes(vars, "var"))
 		allMatches = allMatches.concat(matchTypes(res_words, "reserved"))
-		// allMatches = allMatches.concat(matchTypes(def_functions, "function"))
-		allMatches = allMatches.concat(matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*(?= *\\()", text, "function"))
-		
-		allMatches = allMatches.concat(matchType("\\b(?:True|False)\\b", text, "boolean"))
+		allMatches = allMatches.concat(matchTypes(def_functions, "def-function"))
+		allMatches = allMatches.concat(matchTypes(def_classes, "def-class"))
 
+		allMatches = allMatches.concat(matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*(?= *\\()", text, "function"))
+		allMatches = allMatches.concat(matchType("\\b(?:True|False)\\b", text, "boolean"))
 		allMatches = allMatches.concat(matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*", text, "symbol"))	
+		allMatches = allMatches.concat(matchType("\\b<[a-zA-Z_][a-zA-Z_0-9]*>", text, "generic"))	
 		allMatches = allMatches.concat(matchTypes(operators, "operator", true))
 		allMatches = allMatches.concat(matchType("\\b-?\\d+(?:\\.\\d+)?", text, "number"))
 		allMatches = allMatches.concat(matchType(`'\\w'`, text, "character"))

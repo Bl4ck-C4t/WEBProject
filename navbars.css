@@ -18,11 +18,9 @@ p 	{
 
 
 #navbarCollapse {
-	/*background-color: gray;*/
 	padding-top: 2px;
 	border-top: black solid;
 	border-width: 2px;
-/*	margin-top: 5px;*/
 }
 
 #navDrop {
@@ -33,7 +31,6 @@ p 	{
 
 
 #main {
-  /*height: 100% !important;*/
   min-height: 100%;
   float: left;
   width: 61%;
@@ -70,7 +67,6 @@ p 	{
 .code-inline {
 	display: inline;
 	white-space: nowrap;
-	font-size: 75%;
 	padding: 2px 5px;
 	margin: 0px 5px 0px 5px;
 }
@@ -78,11 +74,13 @@ p 	{
 .code-block {
 	color: black;
 	padding: 10px 10px;
-	font-size: 0.9rem;
+	font-size: 1em;
+	/*background: #F5F5F5;*/
 }
 
 .code-block, .code-inline{
 	max-width: 100%;
+	/*background: #F5F5F5;*/
 	background: #fff;
 	border: solid 1px #e1e4e5;
 	overflow-x: auto;
@@ -116,11 +114,6 @@ p 	{
 
 .nav-link {
 	color: white !important;
-}
-
-.vertical-center {
-    height: 100% !important;
-    /*position: absolute;*/
 }
 
 .block-head {
