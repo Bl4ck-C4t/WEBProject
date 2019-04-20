@@ -1,42 +1,17 @@
-$(document).ready(function() {
+var matcher = { text: "", allMatches: [],
 
-	
-
-	/*function replaceAllMatches2(allMatches, text){ // Legacy
-		var new_text = 	""
-		var match = 0;
-		for (var i = 0; i < text.length; i++) {
-			var m = allMatches[match]
-			if (i == m.index){
-
- 
-				new_text += `<span class="${m.class}">${m[0]}</span>`
-				console.log(new_text, m)
-				i += m[0].length-1 // maybe -1
-				match += 1
-				if(match == allMatches.length){
-					new_text += text.substring(i+1)
-					console.log(new_text, m)
-					break;
-				}
-			}
-			else{
-				new_text += text[i]
-			}	
-			
-		}
-		return new_text
-	}*/
-
-	function* matchAll(reg, text){
+	matchAll: function*(reg){
+		var text = matcher.text;
 		var array1;
 		while ((array1 = reg.exec(text)) !== null) {
 			  yield array1;
 			}
-	}
+	},
 
-	function replaceAllMatches(allMatches, text){
+	replaceAllMatches(){
+		var allMatches = matcher.allMatches;
 		var new_text = 	""
+		var text = matcher.text
 		var last_pos = 0
 		for (const m of allMatches) {
 			new_text += text.substring(last_pos, m.index)
@@ -45,22 +20,21 @@ $(document).ready(function() {
 		}
 		new_text += text.substring(last_pos)
 		return new_text
-	}
+	},
 		
-
-
-	function matchType(reg, text, class_type){
-		var matches = []
-		for (const array1 of matchAll(new RegExp(reg, 'g'), text)){
+	matchType(reg, class_type){
+		var text = matcher.text;
+		for (const array1 of matcher.matchAll(new RegExp(reg, 'g'), text)){
 				// console.log(`Found ${array1[0]}. Next starts at ${array1.index}.`);
 				array1.class = class_type;
-				matches.push(array1)
+				matcher.allMatches.push(array1)
 		}
-		return matches
-	}
+		
+	},
 
-	function matchTypes(arr, class_t, connected=false){
+	matchTypes(arr, class_t, connected=false){
 		var allMatches = [];
+		var text = matcher.text;
 		arr.forEach(function(el){ // color vars
 			var reg = `\\b${el}\\b`
 			if(connected){
@@ -70,14 +44,14 @@ $(document).ready(function() {
 
 				reg = `${el}`
 			}
-
-			allMatches = allMatches.concat(matchType(reg, text, `${class_t} ${class_t}-${el}`))
+			matcher.matchType(reg, `${class_t} ${class_t}-${el}`)
 			
 		})
-		return allMatches;
-	}
 
-	function isIndexin(allMatches, index, pos){
+	},
+
+	isIndexin(index, pos){
+		var allMatches = matcher.allMatches;
 		if(pos == 0){
 			return true;
 		}
@@ -91,49 +65,53 @@ $(document).ready(function() {
 		}
 		// console.log("Index is true")
 		return true;
+	},
+
+	prepareMatches() {
+		matcher.allMatches = matcher.allMatches.sort((a,b) => a.index - b.index) // sort matches by index ascending
+		matcher.allMatches = matcher.allMatches.filter((match, index) => matcher.isIndexin(match.index, index)); // remove equal or overlapping elements
 	}
 
-	var vars = ["char", "int", "bool", "string", "float"]
-	var def_classes = ["List"]
-	var res_words = ["if", "else", "while", "for", "elseif", "return", "func", "in"]
-	var def_functions = ["print", "input", "map", "filter", "push"]
-	var operators = ["&&", "||", "->", "<=", ">=", "==", "!=", "--", "++", "+=", "-=", "/=", "*=",
-	 "!", "+", "=", "-", "*", "/", "^", "%", "<", ">", "."]
-	// var punctuation = ",;(){}[]".split('')
-	var punctuation = "()[]".split('')
+}
 
+var vars = ["char", "int", "bool", "string", "float"]
+var def_classes = ["List"]
+var res_words = ["if", "else", "while", "for", "elseif", "return", "func", "in"]
+var def_functions = ["print", "input", "map", "filter", "push"]
+var operators = ["&&", "||", "->", "<=", ">=", "==", "!=", "--", "++", "+=", "-=", "/=", "*=",
+ "!", "+", "=", "-", "*", "/", "^", "%", "<", ">", "."]
+// var punctuation = ",;(){}[]".split('')
+var punctuation = "()[]".split('')
+
+$(document).ready(function() {
 	var codes = $(".code-block")
 	var text;
-	var allMatches;
+	// var allMatches;
 	codes.each(function() {
-		allMatches = [];
-		text = $(this).text();
-			
-			
-		allMatches = allMatches.concat(matchTypes(punctuation, "punctuation", true))
-		allMatches = allMatches.concat(matchTypes(vars, "var"))
-		allMatches = allMatches.concat(matchTypes(res_words, "reserved"))
-		allMatches = allMatches.concat(matchTypes(def_functions, "def-function"))
-		allMatches = allMatches.concat(matchTypes(def_classes, "def-class"))
+		matcher.allMatches = [];
+		matcher.text = $(this).text();
 
-		allMatches = allMatches.concat(matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*(?= *\\()", text, "function"))
-		allMatches = allMatches.concat(matchType("\\b(?:True|False)\\b", text, "boolean"))
-		allMatches = allMatches.concat(matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*", text, "symbol"))	
-		allMatches = allMatches.concat(matchType("\\b<[a-zA-Z_][a-zA-Z_0-9]*>", text, "generic"))	
-		allMatches = allMatches.concat(matchTypes(operators, "operator", true))
-		allMatches = allMatches.concat(matchType("\\b-?\\d+(?:\\.\\d+)?", text, "number"))
-		allMatches = allMatches.concat(matchType(`'\\w'`, text, "character"))
-		allMatches = allMatches.concat(matchType(`".*?"`, text, "string"))
+		matcher.matchTypes(vars, "var");
+		matcher.matchTypes(punctuation, "punctuation", true)
+		matcher.matchTypes(res_words, "reserved")
+		matcher.matchTypes(def_functions, "def-function")
+		matcher.matchTypes(def_classes, "def-class")
 
-		allMatches = allMatches.sort((a,b) => a.index - b.index) // sort matches by index ascending
-		allMatches = allMatches.filter((match, index) => isIndexin(allMatches, match.index, index)); // remove equal or overlapping elements
+		matcher.matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*(?= *\\()", "function")
+		matcher.matchType("\\b(?:True|False)\\b", "boolean")
+		matcher.matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*", "symbol")	
+		// matcher.matchType("\\b<(?=[a-zA-Z_][a-zA-Z_0-9]*>)", "generic")	
+		// matcher.matchType("(?<=[a-zA-Z_][a-zA-Z_0-9]*>)>", "generic")	
+		matcher.matchTypes(operators, "operator", true)
+		matcher.matchType("\\b-?\\d+(?:\\.\\d+)?", "number")
+		matcher.matchType(`'\\w'`, "character")
+		matcher.matchType(`".*?"`, "string")
 
+		matcher.prepareMatches(); // sorts and filters matches
 
-		console.log("Ordered:", allMatches)
-		new_text = replaceAllMatches(allMatches, text) // apply all ordered matches
+		console.log("Ordered:", matcher.allMatches)
+		new_text = matcher.replaceAllMatches() // apply all ordered matches
 		$(this).html(new_text)
 			
 	});
-
-
 });
