@@ -74,8 +74,8 @@ var matcher = { text: "", allMatches: [],
 
 }
 
-var vars = ["char", "int", "bool", "string", "float"]
-var def_classes = ["List"]
+var vars = ["char", "int", "bool", "string", "float", "arr"]
+// var def_classes = ["List"]
 var res_words = ["if", "else", "while", "for", "elseif", "return", "func", "in"]
 var def_functions = ["print", "input", "map", "filter", "push"]
 var operators = ["&&", "||", "->", "<=", ">=", "==", "!=", "--", "++", "+=", "-=", "/=", "*=",
@@ -95,7 +95,7 @@ $(document).ready(function() {
 		matcher.matchTypes(punctuation, "punctuation", true)
 		matcher.matchTypes(res_words, "reserved")
 		matcher.matchTypes(def_functions, "def-function")
-		matcher.matchTypes(def_classes, "def-class")
+		// matcher.matchTypes(def_classes, "def-class")
 
 		matcher.matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*(?= *\\()", "function")
 		matcher.matchType("\\b(?:True|False)\\b", "boolean")
