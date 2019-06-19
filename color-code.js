@@ -102,6 +102,7 @@ $(document).ready(function() {
 		matcher.matchType("\\b[a-zA-Z_][a-zA-Z_0-9]*", "symbol")	
 		// matcher.matchType("\\b<(?=[a-zA-Z_][a-zA-Z_0-9]*>)", "generic")	
 		// matcher.matchType("(?<=[a-zA-Z_][a-zA-Z_0-9]*>)>", "generic")	
+		matcher.matchType("(\\/\\*(.*\\n)*?.*\\*\\/)|\\/\\/.*\\n*\\s*", "comment")
 		matcher.matchTypes(operators, "operator", true)
 		matcher.matchType("\\b-?\\d+(?:\\.\\d+)?", "number")
 		matcher.matchType(`'\\w'`, "character")

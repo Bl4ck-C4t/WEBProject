@@ -86,12 +86,10 @@ p 	{
 	overflow-x: auto;
 }
 
-.nav-link:hover {
-	padding-left: 15px;
-}
 
 .nav-link:focus, .nav-link:hover{
 	margin-left: -10px;
+	padding-left: 15px;
 }
 
 .navbar-left {
