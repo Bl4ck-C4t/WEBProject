@@ -74,7 +74,7 @@ var matcher = { text: "", allMatches: [],
 
 }
 
-var vars = ["char", "int", "bool", "string", "float", "arr"]
+var vars = ["char", "int", "bool", "string", "float", "arr", "any"]
 // var def_classes = ["List"]
 var res_words = ["if", "else", "while", "for", "elseif", "return", "func", "in"]
 var def_functions = ["print", "input", "map", "filter", "push"]
